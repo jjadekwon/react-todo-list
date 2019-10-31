@@ -1,15 +1,41 @@
 import React from 'react'
 import TodoList from './TodoList'
+import {addTodo, addTodoList, deleteTodo, deleteTodoList, checkTask} from "../actions";
+import {connect} from 'react-redux'
 
-const AllTodoList = ({todoList}) =>
+export const AllTodoList = ({data=[], onCheckTask=f=>f}) =>
     <div>
         {
-            todoList.length ?
-                todoList.map(todo =>
-                    <TodoList key={todo.id} todo={todo} />
-                )
+            data.length ?
+                data.map((list) => {
+                    return <TodoList key={list.id} {...list} onCheckTask={(task) => onCheckTask(list.id, task)} />
+                })
                 : <p>Add new todo list..</p>
         }
     </div>
 
-export default AllTodoList
+const mapStateToProps = state =>
+    ({
+        data: [...state.data]
+    })
+
+const mapDispatchToProps = dispatch =>
+    ({
+        onAddTodoList() {
+            dispatch(addTodoList())
+        },
+        onDeleteTodoList(id) {
+            dispatch(deleteTodoList(id))
+        },
+        onAddTodo(id, task) {
+            dispatch(addTodo(id, task))
+        },
+        onDeleteTodo(id, task) {
+            dispatch(deleteTodo(id, task))
+        },
+        onCheckTask(id, task) {
+            dispatch(checkTask(id, task))
+        }
+    })
+
+export const AllTodos = connect(mapStateToProps, mapDispatchToProps)(AllTodoList)
