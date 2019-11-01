@@ -1,19 +1,15 @@
 import React from 'react'
 
-class Todo extends React.Component {
-    render() {
-        const {task, done, onCheckTask} = this.props
-        return (
-            <div>
-                <input type="checkbox" checked={done} onChange={() => onCheckTask(task)}/>
-                <span>{task}</span>
-            </div>
-        )
-    }
-}
+const Todo = ({task, done, onCheckTask, onDeleteTodo}) =>
+    <div>
+        <input type="checkbox" checked={done} onChange={() => onCheckTask(task)} />
+        <span>{task}</span>
+        <input type="button" value="X" onClick={() => onDeleteTodo(task)}/>
+    </div>
 
 Todo.defaultProps = {
-    onCheckTask: f=>f
+    onCheckTask: f=>f,
+    onDeleteTodo: f=>f
 }
 
 export default Todo

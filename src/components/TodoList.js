@@ -1,25 +1,24 @@
 import React from 'react'
 import Todo from './Todo'
 
-// export const TodoList = ({todolist, dateString, onCheckTask}) =>
-const TodoList = (props) => {
+const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onCheckTask}) => {
     let _task
 
     const handleKeyPress = e => {
         if (e.charCode === 13 && _task.value.length) {
-            props.onAddTodo(props.id, _task.value)
+            onAddTodo(id, _task.value)
             _task.value = ''
         }
     }
 
     return (
         <div>
-            <h5>{props.dateString}</h5>
+            <h5>{dateString}</h5>
             <div>
                 {
-                    props.todolist.map((todo, i) => {
+                    todolist.map((todo, i) => {
                         console.log(todo)
-                        return <Todo key={i} {...todo} onCheckTask={props.onCheckTask} />
+                        return <Todo key={i} {...todo} onCheckTask={onCheckTask} onDeleteTodo={onDeleteTodo}/>
                     })
                 }
             </div>
@@ -29,12 +28,3 @@ const TodoList = (props) => {
 }
 
 export default TodoList
-
-// const mapDispatchToProps = dispatch =>
-//     ({
-//         onCheckTask(id, task) {
-//             dispatch(checkTask(id, task))
-//         }
-//     })
-//
-// export const Todos = connect(null, mapDispatchToProps)(TodoList)

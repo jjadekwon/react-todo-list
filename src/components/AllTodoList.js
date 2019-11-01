@@ -3,12 +3,15 @@ import TodoList from './TodoList'
 import {addTodo, addTodoList, deleteTodo, deleteTodoList, checkTask} from "../actions";
 import {connect} from 'react-redux'
 
-export const AllTodoList = ({data=[], onAddTodo=f=>f, onCheckTask=f=>f}) =>
+export const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onCheckTask=f=>f}) =>
     <div>
         {
             data.length ?
                 data.map((list) => {
-                    return <TodoList key={list.id} {...list} onAddTodo={onAddTodo} onCheckTask={(task) => onCheckTask(list.id, task)} />
+                    return <TodoList key={list.id} {...list}
+                                     onAddTodo={onAddTodo}
+                                     onDeleteTodo={(task) => onDeleteTodo(list.id, task)}
+                                     onCheckTask={(task) => onCheckTask(list.id, task)} />
                 })
                 : <p>Add new todo list..</p>
         }

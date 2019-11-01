@@ -28,7 +28,12 @@ export const todolist = (state = {}, action) => {
                 } :
                 state
         case DELETE_TODO:
-            return state.todolist.filter(todo => todo.task === action.task)
+            return state.id === action.id ?
+                {
+                    ...state,
+                    todolist: [...state.todolist].filter(todo => todo.task !== action.task)
+                } :
+                state
         case ADD_TODO_LIST:
             return {
                 id: action.id,
@@ -51,13 +56,15 @@ export const data = (state = [], action) => {
     switch (action.type) {
         case ADD_TODO:
             return state.map(list => todolist(list, action))
+        case DELETE_TODO:
+            return state.map(list => todolist(list, action))
         case ADD_TODO_LIST:
             return [
                 ...state,
                 todolist({}, action)
             ]
         case DELETE_TODO_LIST:
-            return state.filter(list => list.id === action.id)
+            return state.filter(list => list.id !== action.id)
         case CHECK_TASK:
             return state.map(list => todolist(list, action))
         default:
