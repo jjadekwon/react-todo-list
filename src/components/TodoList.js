@@ -1,7 +1,7 @@
 import React from 'react'
 import Todo from './Todo'
 
-const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onCheckTask}) => {
+const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onDeleteTodoList, onCheckTask}) => {
     let _task
 
     const handleKeyPress = e => {
@@ -14,6 +14,7 @@ const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onCheckTas
     return (
         <div>
             <h5>{dateString}</h5>
+            <input type="button" value="X" onClick={() => onDeleteTodoList(id)} />
             <div>
                 {
                     todolist.map((todo, i) => {

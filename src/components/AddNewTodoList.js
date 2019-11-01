@@ -11,6 +11,7 @@ const AddNewTodoList = ({onAddTodoList=f=>f}) => {
     }
 
     const handleKeyPress = e => {
+        // enter
         if (e.charCode === 13) {
             addList()
         }

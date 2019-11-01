@@ -1,5 +1,4 @@
 import React from 'react';
-import AddNewTodoList from './AddNewTodoList'
 import {NewTodoList, AllTodos} from './container';
 import {data} from '../data/initialState'
 

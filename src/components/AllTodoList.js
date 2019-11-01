@@ -1,7 +1,7 @@
 import React from 'react'
 import TodoList from './TodoList'
 
-const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onCheckTask=f=>f}) =>
+const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onDeleteTodoList=f=>f, onCheckTask=f=>f}) =>
     <div>
         {
             data.length ?
@@ -10,6 +10,7 @@ const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onCheckTask=f=
                                      {...list}
                                      onAddTodo={onAddTodo}
                                      onDeleteTodo={onDeleteTodo}
+                                     onDeleteTodoList={onDeleteTodoList}
                                      onCheckTask={onCheckTask} />
                 })
                 : <p>Add new todo list..</p>
