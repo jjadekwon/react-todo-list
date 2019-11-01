@@ -1,0 +1,15 @@
+body {
+  background: teal;
+
+  div.app {
+    display: flex;
+    flex-direction: column;
+    margin: 70px;
+  }
+}
+
+h1 {
+  color: #FFFFFF;
+  font-weight: 800;
+  text-align: center;
+}

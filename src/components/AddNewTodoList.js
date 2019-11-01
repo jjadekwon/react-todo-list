@@ -1,4 +1,5 @@
 import React from 'react'
+import '../stylesheets/AddNewTodoList.scss'
 
 const AddNewTodoList = ({onAddTodoList=f=>f}) => {
     let _task
@@ -18,10 +19,10 @@ const AddNewTodoList = ({onAddTodoList=f=>f}) => {
     }
 
     return (
-        <div>
-            <span>TODO: </span>
+        <div className="add-form">
+            <span>TODO : </span>
             <input type="text" ref={input => _task = input} onKeyPress={handleKeyPress}/>
-            <input type="button" value="add" onClick={addList}/>
+            <input type="button" value="+" onClick={addList}/>
         </div>
     )
 }

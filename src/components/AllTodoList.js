@@ -1,8 +1,9 @@
 import React from 'react'
 import TodoList from './TodoList'
+import '../stylesheets/AllTodoList.scss'
 
 const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onDeleteTodoList=f=>f, onCheckTask=f=>f}) =>
-    <div>
+    <div className="all-list">
         {
             data.length ?
                 data.map((list) => {

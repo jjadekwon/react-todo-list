@@ -1,0 +1,18 @@
+div.todo {
+  margin: 12px;
+
+  input#deletetaskbtn {
+    margin-left: 5px;
+    float: right;
+    color: red;
+  }
+
+  input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+  }
+
+  span {
+    margin-left: 5px;
+    font-size: 14.4px;
+  }
+}

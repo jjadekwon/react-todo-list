@@ -1,0 +1,33 @@
+div.add-form {
+  border: 1px solid white;
+  margin-top: 20px;
+  margin-bottom: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px;
+
+  input, span {
+    margin: 5px;
+    font-size: 1em;
+  }
+
+  span {
+    font-style: italic;
+    color: white;
+  }
+
+  input[type="button"] {
+    background-color: white;
+    font-size: 1.1em;
+    font-weight: 200;
+    border: none;
+    border-radius: 50%;
+  }
+
+  input[type="text"] {
+    border: transparent;
+    height: 22px;
+    width: 200px;
+    font-size: 14px;
+  }
+}

@@ -1,0 +1,38 @@
+div.todo-list {
+  margin: 20px;
+  background-color: white;
+  min-width: 230px;
+  height: 100%;
+  padding-bottom: 15px;
+
+  div.top {
+    display: flex;
+    flex-direction: column;
+    background-color: #B9DCDC;
+  }
+
+  input[type="text"] {
+    margin-left: 35px;
+    width: 160px;
+    height: 16px;
+  }
+
+  input[type="button"] {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: transparent;
+  }
+
+  input#deletelistbtn {
+    align-self: flex-end;
+    color: teal;
+  }
+
+  p {
+    color: teal;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0;
+  }
+}

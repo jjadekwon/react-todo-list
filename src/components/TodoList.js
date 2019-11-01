@@ -1,5 +1,6 @@
 import React from 'react'
 import Todo from './Todo'
+import '../stylesheets/TodoList.scss'
 
 const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onDeleteTodoList, onCheckTask}) => {
     let _task
@@ -12,9 +13,11 @@ const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onDeleteTo
     }
 
     return (
-        <div>
-            <h5>{dateString}</h5>
-            <input type="button" value="X" onClick={() => onDeleteTodoList(id)} />
+        <div className="todo-list">
+            <div className="top">
+                <input id="deletelistbtn" type="button" value="X" onClick={() => onDeleteTodoList(id)} />
+                <p>{dateString}</p>
+            </div>
             <div>
                 {
                     todolist.map((todo, i) => {
