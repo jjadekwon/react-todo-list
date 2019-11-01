@@ -21,10 +21,12 @@ export const todo = (state = {}, action) => {
 export const todolist = (state = {}, action) => {
     switch (action.type) {
         case ADD_TODO:
-            return {
-                ...state,
-                todolist: [...todolist, todo({}, action)]
-            }
+            return state.id === action.id ?
+                {
+                    ...state,
+                    todolist: [...state.todolist, todo({}, action)]
+                } :
+                state
         case DELETE_TODO:
             return state.todolist.filter(todo => todo.task === action.task)
         case ADD_TODO_LIST:
@@ -47,6 +49,8 @@ export const todolist = (state = {}, action) => {
 
 export const data = (state = [], action) => {
     switch (action.type) {
+        case ADD_TODO:
+            return state.map(list => todolist(list, action))
         case ADD_TODO_LIST:
             return [
                 ...state,
