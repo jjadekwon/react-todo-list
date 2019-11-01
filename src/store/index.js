@@ -1,5 +1,5 @@
 import {combineReducers, applyMiddleware, createStore} from "redux";
-import {data, todolist} from "./reducers";
+import {data} from "./reducers";
 import stateData from '../data/initialState'
 
 const logger = store => next => action => {

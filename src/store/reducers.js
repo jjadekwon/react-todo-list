@@ -37,8 +37,12 @@ export const todolist = (state = {}, action) => {
         case ADD_TODO_LIST:
             return {
                 id: action.id,
-                todolist: action.todolist,
-                date: action.date
+                todolist:
+                    [{
+                        task: action.task,
+                        done: false
+                    }],
+                dateString: action.dateString
             }
         case CHECK_TASK:
             return state.id === action.id ?

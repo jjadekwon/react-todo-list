@@ -18,7 +18,10 @@ const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onCheckTas
                 {
                     todolist.map((todo, i) => {
                         console.log(todo)
-                        return <Todo key={i} {...todo} onCheckTask={onCheckTask} onDeleteTodo={onDeleteTodo}/>
+                        return <Todo key={i}
+                                     {...todo}
+                                     onCheckTask={task => onCheckTask(id, task)}
+                                     onDeleteTodo={task => onDeleteTodo(id, task)} />
                     })
                 }
             </div>

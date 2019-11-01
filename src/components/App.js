@@ -1,12 +1,13 @@
 import React from 'react';
 import AddNewTodoList from './AddNewTodoList'
-import {AllTodos} from './AllTodoList';
+import {NewTodoList, AllTodos} from './container';
 import {data} from '../data/initialState'
 
 const App = () =>
     <div>
-      <AddNewTodoList />
-      <AllTodos data={data} />
+        <h1>Todo App</h1>
+        <NewTodoList />
+        <AllTodos data={data} />
     </div>
 
 

@@ -22,11 +22,21 @@ export const deleteTodo = (id, task) => {
     }
 }
 
-export const addTodoList = () => {
+const getTodayDateString = () => {
+    let today = new Date()
+    let year = today.getFullYear()
+    let month = today.getMonth() + 1
+    let day = today.getDay()
+
+    return `${year}-${month}-${day}`
+}
+
+export const addTodoList = (task) => {
     return {
         type: ADD_TODO_LIST,
         id: v4(),
-        date: Date.now()
+        task,
+        dateString: getTodayDateString()
     }
 }
 
