@@ -15,14 +15,14 @@ const logger = store => next => action => {
 
 const saver = store => next => action => {
     let result = next(action)
-    localStorage['redux-store'] = JSON.stringify(store.getState())
+    localStorage['todolist-store'] = JSON.stringify(store.getState())
     return result
 }
 
 export const storeFactory = (initialState=stateData) =>
     applyMiddleware(logger, saver)(createStore)(
         combineReducers({data}),
-        (localStorage['redux-store']) ?
-            JSON.parse(localStorage['redux-store']) :
+        (localStorage['todolist-store']) ?
+            JSON.parse(localStorage['todolist-store']) :
             initialState
     )

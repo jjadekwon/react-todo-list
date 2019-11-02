@@ -26,10 +26,11 @@ const getTodayDateString = () => {
     let today = new Date()
     let year = today.getFullYear()
     let month = today.getMonth() + 1
-    let day = today.getDay()
-    if (day < 10) day = `0${day}`
+    let date = today.getDate()
 
-    return `${year}-${month}-${day}`
+    if (date < 10) date = `0${date}`
+
+    return `${year}-${month}-${date}`
 }
 
 export const addTodoList = (task) => {

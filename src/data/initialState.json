@@ -18,15 +18,19 @@
             "id": "97dacaea-3861-48c3-9b0e-cbacc3f4706e",
             "todolist": [
                 {
-                    "task": "spring boot 책 찾아보기",
-                    "done": true
+                    "task": "react todo list 만들기",
+                    "done": false
                 },
                 {
-                    "task": "react todo list 만들기",
+                    "task": "삼겹살 먹기",
+                    "done": false
+                },
+                {
+                    "task": "운동하기",
                     "done": false
                 }
             ],
-            "dateString": "2019-10-31"
+            "dateString": "2019-11-01"
         }
     ]
 }
