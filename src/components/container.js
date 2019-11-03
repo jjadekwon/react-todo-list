@@ -1,6 +1,7 @@
 import {addTodo, addTodoList, checkTask, deleteTodo, deleteTodoList} from "../actions";
 import {connect} from "react-redux";
 import AllTodoList from "./AllTodoList";
+import TodoList from "./TodoList";
 import AddNewTodoList from "./AddNewTodoList";
 
 export const NewTodoList = connect(
@@ -13,11 +14,8 @@ export const NewTodoList = connect(
         })
 )(AddNewTodoList)
 
-export const AllTodos = connect(
-    state =>
-        ({
-            data: [...state.data]
-        }),
+export const Todos = connect(
+    null,
     dispatch =>
         ({
             onDeleteTodoList(id) {
@@ -33,4 +31,12 @@ export const AllTodos = connect(
                 dispatch(checkTask(id, task))
             }
         })
+)(TodoList)
+
+export const AllTodos = connect(
+    state =>
+        ({
+            data: [...state.data]
+        }),
+    null
 )(AllTodoList)

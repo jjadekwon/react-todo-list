@@ -1,18 +1,15 @@
 import React from 'react'
-import TodoList from './TodoList'
+import {Todos} from './container'
 import '../stylesheets/AllTodoList.scss'
 
-const AllTodoList = ({data=[], onAddTodo=f=>f, onDeleteTodo=f=>f, onDeleteTodoList=f=>f, onCheckTask=f=>f}) =>
+const AllTodoList = ({data=[]}) =>
     <div className="all-list">
         {
             data.length ?
                 data.map((list) => {
-                    return <TodoList key={list.id}
-                                     {...list}
-                                     onAddTodo={onAddTodo}
-                                     onDeleteTodo={onDeleteTodo}
-                                     onDeleteTodoList={onDeleteTodoList}
-                                     onCheckTask={onCheckTask} />
+                    return list.todolist.length === 0 ? "" :
+                        <Todos key={list.id}
+                                     {...list} />
                 })
                 : <p>Add new todo list..</p>
         }

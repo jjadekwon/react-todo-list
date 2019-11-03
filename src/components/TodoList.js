@@ -2,7 +2,7 @@ import React from 'react'
 import Todo from './Todo'
 import '../stylesheets/TodoList.scss'
 
-const TodoList = ({id, dateString, todolist, onAddTodo, onDeleteTodo, onDeleteTodoList, onCheckTask}) => {
+const TodoList = ({id, dateString, todolist, onAddTodo=f=>f, onDeleteTodo=f=>f, onDeleteTodoList=f=>f, onCheckTask=f=>f}) => {
     let _task
 
     const handleKeyPress = e => {
