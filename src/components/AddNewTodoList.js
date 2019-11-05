@@ -11,8 +11,7 @@ const AddNewTodoList = ({date, onAddTodoList=f=>f, onDayInputChange=f=>f}) => {
     const addList = () => {
         if (_task.value.length) {
             //const date = document.querySelector("div.DayPickerInput input").value
-
-            onAddTodoList(getDateString(date), _task.value)
+            onAddTodoList(date, _task.value)
 
             _task.value = ''
         }
@@ -31,7 +30,7 @@ const AddNewTodoList = ({date, onAddTodoList=f=>f, onDayInputChange=f=>f}) => {
             <DayPickerInput classNames={style}
                             formatDate={getDateString}
                             value={getDateString()}
-                            onDayChange={onDayInputChange}/>
+                            onDayChange={d => onDayInputChange(getDateString(d))}/>
             <input type="text" ref={input => _task = input} onKeyPress={handleKeyPress}/>
             <input type="button" value="+" onClick={addList}/>
         </div>

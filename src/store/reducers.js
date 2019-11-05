@@ -1,4 +1,5 @@
 import {ADD_TODO, DELETE_TODO, ADD_TODO_LIST, DELETE_TODO_LIST, CHECK_TASK} from "../actions";
+import {getDateString} from "../lib/day-helper";
 
 export const todo = (state = {}, action) => {
     switch (action.type) {
@@ -76,7 +77,7 @@ export const data = (state = [], action) => {
     }
 }
 
-export const date = (state = {}, action) => {
+export const date = (state = getDateString(new Date()), action) => {
     if (action.type === "CHANGE_DAY") return action.date
     return state
 }

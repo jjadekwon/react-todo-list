@@ -1,6 +1,5 @@
 import {combineReducers, applyMiddleware, createStore} from "redux";
 import {data, date} from "./reducers";
-import stateData from '../data/initialState'
 
 const logger = store => next => action => {
     let result
@@ -19,10 +18,8 @@ const saver = store => next => action => {
     return result
 }
 
-export const storeFactory = (initialState=stateData) =>
+export const storeFactory = () =>
     applyMiddleware(logger, saver)(createStore)(
         combineReducers({data, date}),
-        (localStorage['todolist-store']) ?
-            JSON.parse(localStorage['todolist-store']) :
-            initialState
+        JSON.parse(localStorage['todolist-store'])
     )
