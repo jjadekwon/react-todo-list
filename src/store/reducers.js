@@ -75,3 +75,8 @@ export const data = (state = [], action) => {
             return state
     }
 }
+
+export const date = (state = {}, action) => {
+    if (action.type === "CHANGE_DAY") return action.date
+    return state
+}

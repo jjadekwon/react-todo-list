@@ -1,15 +1,21 @@
-import {addTodo, addTodoList, checkTask, deleteTodo, deleteTodoList} from "../actions";
+import {addTodo, addTodoList, changeDay, checkTask, deleteTodo, deleteTodoList} from "../actions";
 import {connect} from "react-redux";
 import AllTodoList from "./AllTodoList";
 import TodoList from "./TodoList";
 import AddNewTodoList from "./AddNewTodoList";
 
 export const NewTodoList = connect(
-    null,
+    state =>
+        ({
+            date: state.date
+        }),
     dispatch =>
         ({
-            onAddTodoList(task) {
-                dispatch(addTodoList(task))
+            onAddTodoList(dateString, task) {
+                dispatch(addTodoList(dateString, task))
+            },
+            onDayInputChange(date) {
+                dispatch(changeDay(date))
             }
         })
 )(AddNewTodoList)
@@ -37,6 +43,5 @@ export const AllTodos = connect(
     state =>
         ({
             data: [...state.data]
-        }),
-    null
+        })
 )(AllTodoList)
